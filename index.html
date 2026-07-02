@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#1F3A5F">
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<title>Агромаштех — Баримт</title>
+<style>
+  :root{
+    --navy:#1F3A5F; --navy-2:#274a78; --gold:#C9A227; --gold-d:#a8861a;
+    --cream:#F5F1E8; --ink:#1a2330; --muted:#6b7787; --line:#e3e8ef;
+    --ok:#1f8a4c; --wait:#b7791f; --err:#c0392b; --bg:#eef1f5;
+  }
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html,body{margin:0;background:var(--bg);color:var(--ink);
+    font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif}
+  body{padding-bottom:env(safe-area-inset-bottom)}
+
+  header{position:sticky;top:0;z-index:20;background:var(--navy);color:#fff;
+    padding:calc(10px + env(safe-area-inset-top)) 16px 10px;
+    display:flex;align-items:center;gap:10px}
+  header .logo{width:30px;height:30px;border-radius:8px;flex:0 0 auto}
+  header h1{font-size:16px;font-weight:700;margin:0;letter-spacing:.2px;flex:1}
+  .net{font-size:11px;font-weight:600;padding:3px 8px;border-radius:20px;white-space:nowrap}
+  .net.on{background:rgba(31,138,76,.22);color:#9be3b4}
+  .net.off{background:rgba(183,121,31,.25);color:#f0c887}
+
+  .wrap{max-width:520px;margin:0 auto;padding:14px 14px 96px}
+
+  /* ---- home queue ---- */
+  .synced-line{display:flex;justify-content:space-between;align-items:center;margin:2px 2px 12px}
+  .synced-line .lbl{font-size:13px;color:var(--muted)}
+  .badge{background:var(--gold);color:var(--navy);font-weight:800;font-size:12px;
+    border-radius:20px;padding:2px 9px;display:none}
+  .link-btn{background:none;border:none;color:var(--navy);font-weight:700;font-size:13px;
+    text-decoration:underline;padding:4px}
+
+  .card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:13px 14px;
+    margin-bottom:10px;box-shadow:0 1px 2px rgba(20,40,70,.04)}
+  .card .row{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+  .tag{font-size:11px;font-weight:700;color:var(--navy);background:#eef2f8;
+    border-radius:6px;padding:3px 8px}
+  .b{font-size:11px;font-weight:700;border-radius:20px;padding:3px 9px}
+  .b.ok{background:#e6f4ec;color:var(--ok)} .b.wait{background:#fbf1de;color:var(--wait)}
+  .b.err{background:#fbeae7;color:var(--err)}
+  .purpose{font-size:16px;font-weight:600;line-height:1.25}
+  .meta{font-size:13px;color:var(--muted);margin-top:3px}
+  .errmsg{font-size:12px;color:var(--err);margin-top:6px}
+  .empty{text-align:center;color:var(--muted);font-size:14px;line-height:1.6;padding:48px 20px}
+
+  /* ---- primary add button (fixed) ---- */
+  .fab{position:fixed;left:0;right:0;bottom:0;z-index:30;
+    padding:12px 14px calc(12px + env(safe-area-inset-bottom));
+    background:linear-gradient(180deg,rgba(238,241,245,0),var(--bg) 34%)}
+  .fab .inner{max-width:520px;margin:0 auto}
+  .primary{width:100%;background:var(--gold);color:var(--navy);border:none;
+    font-size:17px;font-weight:800;padding:16px;border-radius:14px;
+    box-shadow:0 6px 18px rgba(201,162,39,.35);cursor:pointer}
+  .primary:active{background:var(--gold-d)}
+
+  /* ---- type screen ---- */
+  .backbar{display:flex;align-items:center;gap:8px;margin-bottom:14px}
+  .back{background:#fff;border:1px solid var(--line);border-radius:10px;
+    padding:8px 12px;font-size:14px;font-weight:600;color:var(--navy);cursor:pointer}
+  .h2{font-size:20px;font-weight:800;margin:6px 2px 16px;color:var(--navy)}
+  .typecard{display:block;width:100%;text-align:left;background:#fff;cursor:pointer;
+    border:1px solid var(--line);border-left:6px solid var(--gold);
+    border-radius:14px;padding:20px 18px;margin-bottom:12px;
+    box-shadow:0 1px 3px rgba(20,40,70,.05)}
+  .typecard:active{background:#faf8f2}
+  .typecard.t1{border-left-color:var(--navy)}
+  .typecard.t2{border-left-color:#2f7d8a}
+  .tc-name{font-size:18px;font-weight:800;color:var(--ink)}
+
+  /* ---- capture form ---- */
+  .cap-type{font-size:12px;font-weight:700;color:var(--navy);background:#eef2f8;
+    border-radius:6px;padding:4px 10px}
+  .imgbox{background:#fff;border:1px dashed #c4cdda;border-radius:14px;overflow:hidden;
+    margin-bottom:12px;min-height:150px;display:flex;align-items:center;justify-content:center}
+  #preview{display:none;width:100%;height:auto}
+  #no-image{display:flex;flex-direction:column;align-items:center;gap:6px;
+    color:var(--muted);font-size:13px;padding:34px}
+  .capture-btns{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px}
+  .cbtn{border:1px solid var(--navy);background:#fff;color:var(--navy);
+    font-size:15px;font-weight:700;padding:14px;border-radius:12px;cursor:pointer}
+  .cbtn:active{background:#eef2f8}
+  #qr-reader{display:none;margin-bottom:14px;border-radius:12px;overflow:hidden}
+
+  label{display:block;font-size:12px;font-weight:700;color:var(--muted);
+    margin:12px 2px 5px;text-transform:uppercase;letter-spacing:.3px}
+  input,select,textarea{width:100%;font-size:16px;padding:12px;border:1px solid var(--line);
+    border-radius:11px;background:#fff;color:var(--ink);font-family:inherit}
+  input:focus,select:focus,textarea:focus{outline:none;border-color:var(--navy)}
+  textarea{min-height:60px;resize:vertical}
+  .req{color:var(--err)}
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  #b2b-warn{display:none;background:#fbf1de;color:#8a5a11;border:1px solid #ecd39a;
+    border-radius:10px;padding:10px 12px;font-size:13px;font-weight:600;margin-top:10px}
+  #foreign-fields{display:none}
+  .save{width:100%;background:var(--navy);color:#fff;border:none;font-size:17px;
+    font-weight:800;padding:16px;border-radius:14px;margin:18px 0 8px;cursor:pointer}
+  .save:active{background:var(--navy-2)}
+
+  #toast{display:none;position:fixed;left:50%;bottom:96px;transform:translateX(-50%);
+    z-index:50;background:var(--ink);color:#fff;font-size:14px;font-weight:600;
+    padding:12px 18px;border-radius:12px;max-width:90%;text-align:center;
+    box-shadow:0 8px 24px rgba(0,0,0,.3)}
+  .hidden{display:none}
+</style>
+</head>
+<body>
+
+<header>
+  <img class="logo" src="icons/icon-192.png" alt="">
+  <h1>Баримт бүртгэл</h1>
+  <span id="net" class="net on">●</span>
+</header>
+
+<!-- ============ HOME ============ -->
+<div id="screen-home" class="wrap">
+  <div class="synced-line">
+    <span class="lbl">Хүлээгдэж буй: <span id="pending-badge" class="badge">0</span></span>
+    <button class="link-btn" onclick="syncAll()">Одоо илгээх</button>
+  </div>
+  <div id="queue"></div>
+</div>
+
+<!-- ============ TYPE ============ -->
+<div id="screen-type" class="wrap" style="display:none">
+  <div class="backbar"><button class="back" onclick="show('screen-home')">‹ Буцах</button></div>
+  <div class="h2">Ямар тайлангийн баримт вэ?</div>
+  <div id="type-cards"></div>
+</div>
+
+<!-- ============ CAPTURE ============ -->
+<div id="screen-capture" class="wrap" style="display:none">
+  <div class="backbar">
+    <button class="back" onclick="show('screen-type')">‹ Буцах</button>
+    <span id="cap-type-label" class="cap-type"></span>
+  </div>
+
+  <div class="imgbox">
+    <img id="preview" alt="баримт">
+    <div id="no-image">📄<span>Зураг эсвэл QR аваагүй байна</span></div>
+  </div>
+
+  <div class="capture-btns">
+    <button class="cbtn" onclick="document.getElementById('photo').click()">📷 Зураг дарах</button>
+    <button class="cbtn" id="btn-scan" onclick="startScanner()">▣ QR уншуулах</button>
+  </div>
+  <input id="photo" class="hidden" type="file" accept="image/*" capture="environment"
+         onchange="onPhotoPicked(this)">
+  <div id="qr-reader"></div>
+
+  <label>Зорилго <span class="req">*</span></label>
+  <input id="f-purpose" placeholder="жишээ: РСМ зочдын өдрийн хоол">
+
+  <div class="two">
+    <div><label>Ангилал</label><select id="f-category"></select></div>
+    <div><label>Огноо</label><input id="f-date" placeholder="2026-07-02"></div>
+  </div>
+
+  <label>Компани (борлуулагч)</label>
+  <input id="f-company" placeholder="жишээ: Петростар ХХК">
+
+  <div class="two">
+    <div><label>Дүн (₮)</label><input id="f-amount" inputmode="numeric" placeholder="0"></div>
+    <div><label>НӨАТ</label><input id="f-vat" inputmode="numeric" placeholder="0"></div>
+  </div>
+
+  <div class="two">
+    <div><label>Борлуулагч ТТД</label><input id="f-mtin" inputmode="numeric"></div>
+    <div><label>Худ.авагч ТТД</label><input id="f-ctin" inputmode="numeric"></div>
+  </div>
+  <div id="b2b-warn"></div>
+
+  <label>ДДТД</label>
+  <input id="f-ddtd" placeholder="QR-аас автоматаар">
+
+  <div id="foreign-fields">
+    <div class="two">
+      <div><label>Валют</label><select id="f-currency"></select></div>
+      <div><label>Ханш (₮)</label><input id="f-rate" inputmode="decimal" placeholder="жишээ: 3450"></div>
+    </div>
+  </div>
+
+  <label>Тэмдэглэл</label>
+  <textarea id="f-note" placeholder="нэмэлт тэмдэглэл (заавал биш)"></textarea>
+
+  <input id="f-source" type="hidden" value="Зураг">
+
+  <button class="save" onclick="saveReceipt()">Хадгалах</button>
+</div>
+
+<!-- ============ FAB (home only via primary) ============ -->
+<div class="fab"><div class="inner">
+  <button class="primary" onclick="show('screen-type')">＋ Баримт нэмэх</button>
+</div></div>
+
+<div id="toast"></div>
+
+<script src="lib/html5-qrcode.min.js"></script>
+<script src="app.js"></script>
+<script>
+  // FAB-г зөвхөн home дэлгэц дээр харуулах
+  var _show = show;
+  show = function(id){ _show(id);
+    document.querySelector('.fab').style.display = (id==='screen-home') ? 'block':'none';
+  };
+</script>
+</body>
+</html>
