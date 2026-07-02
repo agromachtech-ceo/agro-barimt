@@ -5,8 +5,8 @@
 
 /* ============ ⚙️ ТОХИРГОО — ЭНД БӨГЛӨНӨ ============ */
 var CONFIG = {
-  API_URL:   'ЭНД_EXEC_URL_ТАВЬ',        // ⚠️ Apps Script deploy-ийн /exec URL
-  API_TOKEN: 'AGRO-2026-CHANGE-ME',      // ⚠️ backend-ийн API_TOKEN-тэй ЯГ ижил
+  API_URL:   'https://script.google.com/macros/s/AKfycbxzX6fuege8lQP0nMJlNqTdYwGXEFqG_VaM3J85t9O6fMN-t7RNo6PNacSPCLI-m48A/exec',        // ⚠️ Apps Script deploy-ийн /exec URL
+  API_TOKEN: 'Batzaya0506',      // ⚠️ backend-ийн API_TOKEN-тэй ЯГ ижил
   ORG_TIN:   '5203449'                   // ⚠️ Агромаштех ТТД (шуурхай B2B анхааруулгад)
 };
 /* =================================================== */
