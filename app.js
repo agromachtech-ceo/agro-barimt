@@ -4,7 +4,7 @@
  *************************************************************/
 
 /* ============ ⚙️ ТОХИРГОО — ЭНД БӨГЛӨНӨ ============ */
-var APP_VERSION = 'v5';
+var APP_VERSION = 'v6';
 var CONFIG = {
   API_URL:   'https://script.google.com/macros/s/AKfycbxzX6fuege8lQP0nMJlNqTdYwGXEFqG_VaM3J85t9O6fMN-t7RNo6PNacSPCLI-m48A/exec',        // ⚠️ Apps Script deploy-ийн /exec URL
   API_TOKEN: 'Batzaya0506',      // ⚠️ backend-ийн API_TOKEN-тэй ЯГ ижил
@@ -95,21 +95,28 @@ var cropState = {};      // { dispW, dispH, natW, natH, box }
 var cropDrag = null;
 
 function openCrop(dataUrl) {
+  var modal = document.getElementById('crop-modal');
+  var el = document.getElementById('crop-img');
+  modal.classList.remove('hide');           // эхлээд харуулна (layout гарна)
   cropImg = new Image();
   cropImg.onload = function () {
-    var modal = document.getElementById('crop-modal');
-    var el = document.getElementById('crop-img');
     el.src = dataUrl;
-    modal.classList.remove('hide');
-    setTimeout(function () {
-      cropState.natW = cropImg.naturalWidth;
-      cropState.natH = cropImg.naturalHeight;
-      cropState.dispW = el.clientWidth;
-      cropState.dispH = el.clientHeight;
-      cropAuto();
-    }, 60);
+    cropMeasure_(0);
   };
   cropImg.src = dataUrl;
+}
+// Зургийн бодит хэмжээг найдвартай уншина (0 бол дахин оролдоно)
+function cropMeasure_(tries) {
+  var el = document.getElementById('crop-img');
+  var w = el.clientWidth, h = el.clientHeight;
+  if ((!w || !h) && tries < 20) {
+    return setTimeout(function () { cropMeasure_(tries + 1); }, 60);
+  }
+  cropState.natW = cropImg.naturalWidth || 1000;
+  cropState.natH = cropImg.naturalHeight || 1000;
+  cropState.dispW = w || el.naturalWidth;
+  cropState.dispH = h || el.naturalHeight;
+  cropAuto();
 }
 
 // Авто таамаглал: гэрэл ихтэй (баримт) хэсгийн хүрээг олох
