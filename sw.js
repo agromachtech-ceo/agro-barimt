@@ -2,7 +2,7 @@
  * Онлайн үед ҮРГЭЛЖ шинэ кодыг ачаална (кэшэнд гацахгүй).
  * Сүлжээгүй үед л кэшнээс уншина.
  */
-var CACHE = 'agro-baramt-v5';
+var CACHE = 'agro-baramt-v6';
 var SHELL = [
   './',
   './index.html',
