@@ -1,8 +1,8 @@
-/* Агромаштех Баримт — Service Worker
- * Аппын бүрхүүлийг кэшлэж, сүлжээгүй үед нээгддэг болгоно.
- * ⚠️ Файл өөрчлөгдвөл CACHE хувилбарын дугаарыг ахиулна (v1→v2...).
+/* Агромаштех Баримт — Service Worker (v4: network-first)
+ * Онлайн үед ҮРГЭЛЖ шинэ кодыг ачаална (кэшэнд гацахгүй).
+ * Сүлжээгүй үед л кэшнээс уншина.
  */
-var CACHE = 'agro-baramt-v3';
+var CACHE = 'agro-baramt-v4';
 var SHELL = [
   './',
   './index.html',
@@ -25,27 +25,29 @@ self.addEventListener('activate', function (e) {
       return Promise.all(keys.map(function (k) {
         if (k !== CACHE) return caches.delete(k);
       }));
-    })
+    }).then(function () { return self.clients.claim(); })
   );
-  self.clients.claim();
 });
 
 self.addEventListener('fetch', function (e) {
   var url = e.request.url;
-  // API дуудлагыг (script.google.com / googleusercontent) ХЭЗЭЭ Ч кэшлэхгүй
+  // API дуудлагыг хэзээ ч кэшлэхгүй
   if (url.indexOf('script.google.com') >= 0 ||
       url.indexOf('googleusercontent.com') >= 0) {
-    return; // браузер шууд сүлжээгээр дуудна
+    return;
   }
-  // Бүрхүүл: cache-first (сүлжээгүй ч нээгдэнэ)
+  if (e.request.method !== 'GET') return;
+
+  // NETWORK-FIRST: онлайн бол шинэ хувилбар, офлайн бол кэш
   e.respondWith(
-    caches.match(e.request).then(function (hit) {
-      return hit || fetch(e.request).then(function (res) {
-        return caches.open(CACHE).then(function (c) {
-          try { c.put(e.request, res.clone()); } catch (x) {}
-          return res;
-        });
-      }).catch(function () { return hit; });
+    fetch(e.request).then(function (res) {
+      var copy = res.clone();
+      caches.open(CACHE).then(function (c) { try { c.put(e.request, copy); } catch (x) {} });
+      return res;
+    }).catch(function () {
+      return caches.match(e.request).then(function (hit) {
+        return hit || caches.match('./index.html');
+      });
     })
   );
 });
