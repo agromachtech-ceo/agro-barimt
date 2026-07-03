@@ -245,19 +245,21 @@ function syncAll() {
 function sendOne(rec) {
   return fetch(CONFIG.API_URL, {
     method: 'POST',
-    headers: { 'Content-Type': 'text/plain;charset=utf-8' }, // CORS preflight-гүй
+    headers: { 'Content-Type': 'text/plain;charset=utf-8' },
     body: JSON.stringify(rec.payload),
     redirect: 'follow'
   }).then(function (res) { return res.text(); })
     .then(function (txt) {
-      var j = {};
-      try { j = JSON.parse(txt); } catch (e) { j = { ok:false, error:'RESP: ' + String(txt).slice(0,120) }; }
-      if (j.ok) { rec.status = 'synced'; rec.serverId = j.id; return dbPut(rec); }
-      rec.status = 'error'; rec.error = j.error || 'тодорхойгүй'; return dbPut(rec);
+      var j = null;
+      try { j = JSON.parse(txt); } catch (e) {}
+      if (j && j.ok) { rec.status = 'synced'; rec.serverId = j.id; return dbPut(rec); }
+      rec.status = 'error';
+      rec.error = (j && j.error) ? j.error : ('ХАРИУ: ' + String(txt).slice(0, 150));
+      return dbPut(rec);
     })
     .catch(function (e) {
       rec.status = 'error';
-      rec.error = 'NET: ' + (e && e.message ? e.message : e);
+      rec.error = 'СҮЛЖЭЭ: ' + (e && e.message ? e.message : String(e));
       return dbPut(rec);
     });
 }
