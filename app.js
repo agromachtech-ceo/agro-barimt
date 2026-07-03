@@ -4,6 +4,7 @@
  *************************************************************/
 
 /* ============ ⚙️ ТОХИРГОО — ЭНД БӨГЛӨНӨ ============ */
+var APP_VERSION = 'v4';
 var CONFIG = {
   API_URL:   'https://script.google.com/macros/s/AKfycbxzX6fuege8lQP0nMJlNqTdYwGXEFqG_VaM3J85t9O6fMN-t7RNo6PNacSPCLI-m48A/exec',        // ⚠️ Apps Script deploy-ийн /exec URL
   API_TOKEN: 'Batzaya0506',      // ⚠️ backend-ийн API_TOKEN-тэй ЯГ ижил
@@ -365,6 +366,8 @@ window.addEventListener('online', function () { updateStatus(); syncAll(); });
 window.addEventListener('offline', updateStatus);
 
 document.addEventListener('DOMContentLoaded', function () {
+  var verEl = document.getElementById('ver');
+  if (verEl) verEl.textContent = APP_VERSION;
   // Type cards
   var tc = document.getElementById('type-cards');
   tc.innerHTML = TYPES.map(function (t, i) {
