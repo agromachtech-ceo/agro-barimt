@@ -251,11 +251,15 @@ function sendOne(rec) {
   }).then(function (res) { return res.text(); })
     .then(function (txt) {
       var j = {};
-      try { j = JSON.parse(txt); } catch (e) {}
+      try { j = JSON.parse(txt); } catch (e) { j = { ok:false, error:'RESP: ' + String(txt).slice(0,120) }; }
       if (j.ok) { rec.status = 'synced'; rec.serverId = j.id; return dbPut(rec); }
       rec.status = 'error'; rec.error = j.error || 'тодорхойгүй'; return dbPut(rec);
     })
-    .catch(function () { /* сүлжээ тасарсан — pending хэвээр */ });
+    .catch(function (e) {
+      rec.status = 'error';
+      rec.error = 'NET: ' + (e && e.message ? e.message : e);
+      return dbPut(rec);
+    });
 }
 
 /* ==================== ДАРААЛАЛ ХАРУУЛАХ ==================== */
