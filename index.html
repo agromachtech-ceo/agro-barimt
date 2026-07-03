@@ -98,6 +98,13 @@
   textarea{min-height:60px;resize:vertical}
   .req{color:var(--err)}
   .two{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .opt{font-weight:400;text-transform:none;color:#9aa4b1;font-size:11px}
+  .chkrow{margin-top:14px}
+  .chk{display:flex;align-items:flex-start;gap:11px;background:#fff;border:1px solid var(--line);
+    border-radius:12px;padding:14px;margin:0;text-transform:none;letter-spacing:0;
+    font-size:15px;font-weight:600;color:var(--ink);cursor:pointer}
+  .chk input{width:22px;height:22px;flex:0 0 auto;margin-top:1px;accent-color:var(--navy)}
+  .chk small{display:block;font-weight:400;color:var(--muted);font-size:12px;margin-top:2px}
   #b2b-warn{display:none;background:#fbf1de;color:#8a5a11;border:1px solid #ecd39a;
     border-radius:10px;padding:10px 12px;font-size:13px;font-weight:600;margin-top:10px}
   #foreign-fields{display:none}
@@ -173,8 +180,13 @@
   </div>
 
   <div class="two">
-    <div><label>Борлуулагч ТТД</label><input id="f-mtin" inputmode="numeric"></div>
-    <div><label>Худ.авагч ТТД</label><input id="f-ctin" inputmode="numeric"></div>
+    <div><label>Борлуулагч ТТД <span class="opt">(заавал биш)</span></label><input id="f-mtin" inputmode="numeric"></div>
+    <div><label>Худ.авагч ТТД <span class="opt">(заавал биш)</span></label><input id="f-ctin" inputmode="numeric"></div>
+  </div>
+
+  <div id="b2b-row" class="chkrow">
+    <label class="chk"><input type="checkbox" id="f-b2b" checked onchange="checkB2B()">
+      <span>Байгууллагын нэр дээр авсан<br><small>ААН-д очих баримт (дараа тооцоо / дотоод томилолтод шаардлагатай)</small></span></label>
   </div>
   <div id="b2b-warn"></div>
 
