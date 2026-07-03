@@ -57,6 +57,7 @@
   .act.del{color:var(--err);border-color:#f0c3bc}
   .act:active{opacity:.7}
   #clear-errors{display:none;color:var(--err);text-decoration:underline}
+  .ver{color:#b3bcc7;font-size:11px;font-weight:600}
   .empty{text-align:center;color:var(--muted);font-size:14px;line-height:1.6;padding:48px 20px}
 
   /* ---- primary add button (fixed) ---- */
@@ -137,7 +138,7 @@
 <!-- ============ HOME ============ -->
 <div id="screen-home" class="wrap">
   <div class="synced-line">
-    <span class="lbl">Хүлээгдэж буй: <span id="pending-badge" class="badge">0</span></span>
+    <span class="lbl">Хүлээгдэж буй: <span id="pending-badge" class="badge">0</span> <span id="ver" class="ver"></span></span>
     <span>
       <button id="clear-errors" class="link-btn" onclick="clearErrors()">Алдааг цэвэрлэх</button>
       <button class="link-btn" onclick="syncAll()">Одоо илгээх</button>
