@@ -58,6 +58,24 @@
   .act:active{opacity:.7}
   #clear-errors{display:none;color:var(--err);text-decoration:underline}
   .ver{color:#b3bcc7;font-size:11px;font-weight:600}
+  /* ---- хайчлах дэлгэц ---- */
+  .crop-modal{position:fixed;inset:0;z-index:200;background:#0d1826;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;padding:12px}
+  .crop-head{color:#fff;font-size:15px;font-weight:700;margin-bottom:10px;text-align:center}
+  .crop-head small{display:block;color:#9fb0c4;font-weight:400;font-size:12px;margin-top:2px}
+  .crop-stage{position:relative;display:inline-block;max-width:100%;line-height:0}
+  #crop-img{display:block;max-width:100%;max-height:60vh}
+  #crop-box{position:absolute;border:2px solid var(--gold);
+    box-shadow:0 0 0 9999px rgba(8,16,28,.62);box-sizing:border-box;cursor:move;touch-action:none}
+  .ch{position:absolute;width:26px;height:26px;background:var(--gold);border:2px solid #fff;
+    border-radius:50%;touch-action:none}
+  .ch.tl{left:-14px;top:-14px} .ch.tr{right:-14px;top:-14px}
+  .ch.bl{left:-14px;bottom:-14px} .ch.br{right:-14px;bottom:-14px}
+  .crop-actions{display:flex;gap:10px;margin-top:16px;width:100%;max-width:460px}
+  .crop-actions button{flex:1;border:none;border-radius:12px;font-size:15px;font-weight:700;padding:14px;cursor:pointer}
+  .crop-actions .cc{background:#2a3b52;color:#cdd8e6}
+  .crop-actions .ca{background:#42556f;color:#fff}
+  .crop-actions .cok{background:var(--gold);color:var(--navy)}
   .empty{text-align:center;color:var(--muted);font-size:14px;line-height:1.6;padding:48px 20px}
 
   /* ---- primary add button (fixed) ---- */
@@ -223,6 +241,26 @@
 <div class="fab"><div class="inner">
   <button class="primary" onclick="show('screen-type')">＋ Баримт нэмэх</button>
 </div></div>
+
+<!-- ============ ХАЙЧЛАХ ДЭЛГЭЦ ============ -->
+<div id="crop-modal" class="crop-modal hide">
+  <div class="crop-head">Баримтаа хүрээнд багтаа
+    <small>Булангуудыг чирж тааруулна · авто хүрээ автоматаар тавигдана</small></div>
+  <div class="crop-stage">
+    <img id="crop-img" alt="">
+    <div id="crop-box" onpointerdown="boxDown(event,'move')">
+      <span class="ch tl" onpointerdown="event.stopPropagation();boxDown(event,'tl')"></span>
+      <span class="ch tr" onpointerdown="event.stopPropagation();boxDown(event,'tr')"></span>
+      <span class="ch bl" onpointerdown="event.stopPropagation();boxDown(event,'bl')"></span>
+      <span class="ch br" onpointerdown="event.stopPropagation();boxDown(event,'br')"></span>
+    </div>
+  </div>
+  <div class="crop-actions">
+    <button class="cc" onclick="cropRetake()">Дахин зураг</button>
+    <button class="ca" onclick="cropAuto()">Авто хүрээ</button>
+    <button class="cok" onclick="cropConfirm()">Болсон ✓</button>
+  </div>
+</div>
 
 <div id="toast"></div>
 
