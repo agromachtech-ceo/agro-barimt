@@ -245,23 +245,17 @@ function syncAll() {
 function sendOne(rec) {
   return fetch(CONFIG.API_URL, {
     method: 'POST',
-    headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+    headers: { 'Content-Type': 'text/plain;charset=utf-8' }, // CORS preflight-гүй
     body: JSON.stringify(rec.payload),
     redirect: 'follow'
   }).then(function (res) { return res.text(); })
     .then(function (txt) {
-      var j = null;
+      var j = {};
       try { j = JSON.parse(txt); } catch (e) {}
-      if (j && j.ok) { rec.status = 'synced'; rec.serverId = j.id; return dbPut(rec); }
-      rec.status = 'error';
-      rec.error = (j && j.error) ? j.error : ('ХАРИУ: ' + String(txt).slice(0, 150));
-      return dbPut(rec);
+      if (j.ok) { rec.status = 'synced'; rec.serverId = j.id; return dbPut(rec); }
+      rec.status = 'error'; rec.error = j.error || 'тодорхойгүй'; return dbPut(rec);
     })
-    .catch(function (e) {
-      rec.status = 'error';
-      rec.error = 'СҮЛЖЭЭ: ' + (e && e.message ? e.message : String(e));
-      return dbPut(rec);
-    });
+    .catch(function () { /* сүлжээ тасарсан — pending хэвээр */ });
 }
 
 /* ==================== ДАРААЛАЛ ХАРУУЛАХ ==================== */
@@ -287,17 +281,45 @@ function renderQueue() {
         '<div class="meta">' + esc(p.company || '—') + ' · ' + amt +
         (p.receiptDate ? ' · ' + esc(p.receiptDate) : '') + '</div>' +
         (r.status === 'error' ? '<div class="errmsg">' + esc(r.error) + '</div>' : '') +
+        '<div class="acts">' +
+          (r.status === 'error' ? '<button class="act retry" onclick="retryRec(\'' + r.localId + '\')">↻ Дахин илгээх</button>' : '') +
+          '<button class="act del" onclick="deleteRec(\'' + r.localId + '\')">Устгах</button>' +
+        '</div>' +
         '</div>';
     }).join('');
     updateStatus();
   });
 }
+function deleteRec(id) {
+  if (!confirm('Энэ баримтыг устгах уу?')) return;
+  dbDel(id).then(function () { toast('Устгагдлаа'); renderQueue(); });
+}
+function retryRec(id) {
+  dbAll().then(function (list) {
+    var r = list.filter(function (x) { return x.localId === id; })[0];
+    if (!r) return;
+    r.status = 'pending'; r.error = '';
+    dbPut(r).then(function () { renderQueue(); syncAll(); });
+  });
+}
+function clearErrors() {
+  if (!confirm('Бүх алдаатай баримтыг устгах уу?')) return;
+  dbAll().then(function (list) {
+    var errs = list.filter(function (x) { return x.status === 'error'; });
+    return errs.reduce(function (ch, r) {
+      return ch.then(function () { return dbDel(r.localId); });
+    }, Promise.resolve());
+  }).then(function () { toast('Алдаатай баримтууд устгагдлаа'); renderQueue(); });
+}
 function updateStatus() {
   dbAll().then(function (list) {
     var pend = list.filter(function (r) { return r.status !== 'synced'; }).length;
+    var errs = list.filter(function (r) { return r.status === 'error'; }).length;
     var badge = document.getElementById('pending-badge');
     badge.textContent = pend;
     badge.style.display = pend ? 'inline-block' : 'none';
+    var clr = document.getElementById('clear-errors');
+    if (clr) clr.style.display = errs ? 'inline-block' : 'none';
     var net = document.getElementById('net');
     if (navigator.onLine) { net.textContent = '● Сүлжээнд холбогдсон'; net.className = 'net on'; }
     else { net.textContent = '● Сүлжээгүй — хадгалж байна'; net.className = 'net off'; }
