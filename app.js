@@ -5,8 +5,8 @@
 
 /* ============ ⚙️ ТОХИРГОО — ЭНД БӨГЛӨНӨ ============ */
 var CONFIG = {
-  API_URL:   'https://script.google.com/macros/s/AKfycbxzX6fuege8lQP0nMJlNqTdYwGXEFqG_VaM3J85t9O6fMN-t7RNo6PNacSPCLI-m48A/exec',        // ⚠️ Apps Script deploy-ийн /exec URL
-  API_TOKEN: 'Batzaya0506',      // ⚠️ backend-ийн API_TOKEN-тэй ЯГ ижил
+  API_URL:   'ЭНД_EXEC_URL_ТАВЬ',        // ⚠️ Apps Script deploy-ийн /exec URL
+  API_TOKEN: 'AGRO-2026-CHANGE-ME',      // ⚠️ backend-ийн API_TOKEN-тэй ЯГ ижил
   ORG_TIN:   '5203449'                   // ⚠️ Агромаштех ТТД (шуурхай B2B анхааруулгад)
 };
 /* =================================================== */
@@ -69,10 +69,13 @@ function chooseType(t) {
   state.type = t;
   resetCapture();
   document.getElementById('cap-type-label').textContent = t;
+  var isForeign = (t === 'Гадаад томилолт');
   // Гадаад томилолт бол валют/ханш талбар нээх
-  document.getElementById('foreign-fields').style.display =
-    (t === 'Гадаад томилолт') ? 'block' : 'none';
-  document.getElementById('f-currency').value = (t === 'Гадаад томилолт') ? 'USD' : 'MNT';
+  document.getElementById('foreign-fields').style.display = isForeign ? 'block' : 'none';
+  document.getElementById('f-currency').value = isForeign ? 'USD' : 'MNT';
+  // Гадаад бол ибаримт байхгүй тул B2B тэмдэглэгээг нуух
+  document.getElementById('b2b-row').style.display = isForeign ? 'none' : 'block';
+  checkB2B();
   show('screen-capture');
 }
 
@@ -141,13 +144,10 @@ function onQr(text) {
   stopScanner();
   var d = parseEbarimtQr(text);
   if (d.ddtd) document.getElementById('f-ddtd').value = d.ddtd;
-  if (d.amount) document.getElementById('f-amount').value = d.amount;
-  if (d.merchantTin) document.getElementById('f-mtin').value = d.merchantTin;
-  if (d.customerTin) document.getElementById('f-ctin').value = d.customerTin;
   if (d.date) document.getElementById('f-date').value = d.date;
   document.getElementById('f-source').value = 'ПОС';
-  checkB2B();
-  toast('QR уншигдлаа. Талбаруудыг шалгана уу.');
+  // eBarimt QR-т дүн/ТТД байдаггүй — зөвхөн ДДТД. Бусдыг гараас.
+  toast('ДДТД уншигдлаа ✓ Дүн, компанийг гараас оруулна уу.');
 }
 /* eBarimt QR — олон форматыг оролдоно (бодит баримтаар нарийсгана) */
 function parseEbarimtQr(text) {
@@ -170,13 +170,15 @@ function parseEbarimtQr(text) {
   return out;
 }
 
-/* ==================== B2B ШУУРХАЙ ШАЛГАЛТ ==================== */
+/* ==================== B2B ШАЛГАЛТ (тэмдэглэгээгээр) ==================== */
 function checkB2B() {
   if (state.type === 'Гадаад томилолт') { warn(''); return; }
-  var ctin = document.getElementById('f-ctin').value.trim();
-  if (!ctin) { warn('⚠ Худалдан авагчийн ТТД алга — "байгууллагад очих" баримт эсэхийг шалга'); return; }
-  if (ctin === CONFIG.ORG_TIN) { warn(''); }
-  else { warn('⚠ ТТД (' + ctin + ') Агромаштех биш байна — тайланд хүчингүй байж болзошгүй'); }
+  var box = document.getElementById('f-b2b');
+  if (box && !box.checked) {
+    warn('⚠ Иргэнд очих баримт дараа тооцоо / дотоод томилолтод хүчингүй байж болзошгүй');
+  } else {
+    warn('');
+  }
 }
 function warn(msg) {
   var el = document.getElementById('b2b-warn');
@@ -207,6 +209,7 @@ function saveReceipt() {
       amount: document.getElementById('f-amount').value.trim(),
       vat: document.getElementById('f-vat').value.trim(),
       customerTin: document.getElementById('f-ctin').value.trim(),
+      isB2B: (state.type !== 'Гадаад томилолт') && document.getElementById('f-b2b').checked,
       source: document.getElementById('f-source').value,
       currency: document.getElementById('f-currency').value,
       rate: document.getElementById('f-rate').value.trim(),
@@ -303,9 +306,18 @@ function resetCapture() {
   document.getElementById('f-category').value = CATEGORIES[0];
   document.getElementById('f-source').value = 'Зураг';
   document.getElementById('f-rate').value = '';
+  document.getElementById('f-b2b').checked = true;
+  // Огноог өнөөдрөөр автоматаар бөглөх (баримтыг ихэвчлэн тэр өдөр авдаг)
+  document.getElementById('f-date').value = todayStr();
   document.getElementById('preview').style.display = 'none';
   document.getElementById('no-image').style.display = 'flex';
   warn('');
+}
+function todayStr() {
+  var d = new Date();
+  var m = ('0' + (d.getMonth() + 1)).slice(-2);
+  var day = ('0' + d.getDate()).slice(-2);
+  return d.getFullYear() + '-' + m + '-' + day;
 }
 function esc(s) {
   return String(s == null ? '' : s).replace(/[&<>"]/g, function (c) {
