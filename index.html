@@ -50,6 +50,13 @@
   .purpose{font-size:16px;font-weight:600;line-height:1.25}
   .meta{font-size:13px;color:var(--muted);margin-top:3px}
   .errmsg{font-size:12px;color:var(--err);margin-top:6px}
+  .acts{display:flex;gap:8px;margin-top:11px}
+  .act{font-size:13px;font-weight:700;border-radius:9px;padding:9px 14px;
+    border:1px solid var(--line);background:#fff;cursor:pointer}
+  .act.retry{color:var(--navy);border-color:var(--navy)}
+  .act.del{color:var(--err);border-color:#f0c3bc}
+  .act:active{opacity:.7}
+  #clear-errors{display:none;color:var(--err);text-decoration:underline}
   .empty{text-align:center;color:var(--muted);font-size:14px;line-height:1.6;padding:48px 20px}
 
   /* ---- primary add button (fixed) ---- */
@@ -131,7 +138,10 @@
 <div id="screen-home" class="wrap">
   <div class="synced-line">
     <span class="lbl">Хүлээгдэж буй: <span id="pending-badge" class="badge">0</span></span>
-    <button class="link-btn" onclick="syncAll()">Одоо илгээх</button>
+    <span>
+      <button id="clear-errors" class="link-btn" onclick="clearErrors()">Алдааг цэвэрлэх</button>
+      <button class="link-btn" onclick="syncAll()">Одоо илгээх</button>
+    </span>
   </div>
   <div id="queue"></div>
 </div>
