@@ -2,16 +2,29 @@
  * Онлайн үед ҮРГЭЛЖ шинэ кодыг ачаална (кэшэнд гацахгүй).
  * Сүлжээгүй үед л кэшнээс уншина.
  */
-var CACHE = 'agro-baramt-v6';
+var CACHE = 'agro-baramt-v7';
 var SHELL = [
   './',
   './index.html',
   './app.js',
   './manifest.json',
+  './brand.css',
   './lib/html5-qrcode.min.js',
   './icons/icon-192.png',
   './icons/icon-512.png',
-  './icons/apple-touch-icon.png'
+  './icons/apple-touch-icon.png',
+  './fonts/montserrat-cyrillic-500-normal.woff2',
+  './fonts/montserrat-latin-500-normal.woff2',
+  './fonts/montserrat-cyrillic-700-normal.woff2',
+  './fonts/montserrat-latin-700-normal.woff2',
+  './fonts/montserrat-cyrillic-800-normal.woff2',
+  './fonts/montserrat-latin-800-normal.woff2',
+  './fonts/inter-cyrillic-400-normal.woff2',
+  './fonts/inter-latin-400-normal.woff2',
+  './fonts/inter-cyrillic-600-normal.woff2',
+  './fonts/inter-latin-600-normal.woff2',
+  './fonts/inter-cyrillic-700-normal.woff2',
+  './fonts/inter-latin-700-normal.woff2'
 ];
 
 self.addEventListener('install', function (e) {
