@@ -1,0 +1,98 @@
+/*************************************************************
+ * АГРОМАШТЕХ ХХК — Нэгдсэн брэнд стандарт (brand.css)
+ * Брэндбүүкийн дагуу: өнгө, фонт, харьцаа. Бүх систем ЭНД холбогдоно.
+ * Фонт орлуулга: Museo Sans Cyrl → Montserrat · TT Hoves → Inter
+ *************************************************************/
+
+/* ===== ФОНТ (өөрөө хостолсон — offline ажиллана) ===== */
+/* Montserrat — гарчиг (display) */
+@font-face{font-family:'Montserrat';font-style:normal;font-weight:500;font-display:swap;
+  src:url('fonts/montserrat-cyrillic-500-normal.woff2') format('woff2');
+  unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:'Montserrat';font-style:normal;font-weight:500;font-display:swap;
+  src:url('fonts/montserrat-latin-500-normal.woff2') format('woff2');
+  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+2000-206F,U+2074,U+20AC,U+2122,U+2212,U+FEFF,U+FFFD}
+@font-face{font-family:'Montserrat';font-style:normal;font-weight:600;font-display:swap;
+  src:url('fonts/montserrat-cyrillic-600-normal.woff2') format('woff2');
+  unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:'Montserrat';font-style:normal;font-weight:600;font-display:swap;
+  src:url('fonts/montserrat-latin-600-normal.woff2') format('woff2');
+  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+2000-206F,U+20AC,U+2122,U+FEFF,U+FFFD}
+@font-face{font-family:'Montserrat';font-style:normal;font-weight:700;font-display:swap;
+  src:url('fonts/montserrat-cyrillic-700-normal.woff2') format('woff2');
+  unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:'Montserrat';font-style:normal;font-weight:700;font-display:swap;
+  src:url('fonts/montserrat-latin-700-normal.woff2') format('woff2');
+  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+2000-206F,U+20AC,U+2122,U+FEFF,U+FFFD}
+@font-face{font-family:'Montserrat';font-style:normal;font-weight:800;font-display:swap;
+  src:url('fonts/montserrat-cyrillic-800-normal.woff2') format('woff2');
+  unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:'Montserrat';font-style:normal;font-weight:800;font-display:swap;
+  src:url('fonts/montserrat-latin-800-normal.woff2') format('woff2');
+  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+2000-206F,U+20AC,U+2122,U+FEFF,U+FFFD}
+
+/* Inter — бичвэр (body) */
+@font-face{font-family:'Inter';font-style:normal;font-weight:400;font-display:swap;
+  src:url('fonts/inter-cyrillic-400-normal.woff2') format('woff2');
+  unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:'Inter';font-style:normal;font-weight:400;font-display:swap;
+  src:url('fonts/inter-latin-400-normal.woff2') format('woff2');
+  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+2000-206F,U+20AC,U+2122,U+FEFF,U+FFFD}
+@font-face{font-family:'Inter';font-style:normal;font-weight:500;font-display:swap;
+  src:url('fonts/inter-cyrillic-500-normal.woff2') format('woff2');
+  unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:'Inter';font-style:normal;font-weight:500;font-display:swap;
+  src:url('fonts/inter-latin-500-normal.woff2') format('woff2');
+  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+2000-206F,U+20AC,U+2122,U+FEFF,U+FFFD}
+@font-face{font-family:'Inter';font-style:normal;font-weight:600;font-display:swap;
+  src:url('fonts/inter-cyrillic-600-normal.woff2') format('woff2');
+  unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:'Inter';font-style:normal;font-weight:600;font-display:swap;
+  src:url('fonts/inter-latin-600-normal.woff2') format('woff2');
+  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+2000-206F,U+20AC,U+2122,U+FEFF,U+FFFD}
+@font-face{font-family:'Inter';font-style:normal;font-weight:700;font-display:swap;
+  src:url('fonts/inter-cyrillic-700-normal.woff2') format('woff2');
+  unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:'Inter';font-style:normal;font-weight:700;font-display:swap;
+  src:url('fonts/inter-latin-700-normal.woff2') format('woff2');
+  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+2000-206F,U+20AC,U+2122,U+FEFF,U+FFFD}
+
+/* ===== БРЭНД ТОКЕН (өнгө, фонт) ===== */
+:root{
+  /* Үндсэн өнгө (брэндбүүк) */
+  --navy:#163280;      /* Navy Blue #163280 */
+  --navy-d:#0f2456;    /* гүн navy — толгой градиент */
+  --navy-2:#24439a;    /* цайвар navy — hover */
+  --navy2:#24439a;     /* alias */
+  --yellow:#F7C80A;    /* Yellow #F7C80A */
+  --orange:#E88215;    /* Orange #E88215 */
+  --gold:#F7C80A;      /* үндсэн онцлох (alias → yellow) */
+  --gold-l:#ffd84d;
+  --gold-d:#E88215;    /* hover → orange */
+
+  /* Үйлчилгээний өнгө (5 чиглэл) */
+  --c-plant:#69D615;      /* Ургамал хамгаалал */
+  --c-precision:#2FDECD;  /* Precision farming */
+  --c-service:#4DB5FA;    /* Засвар үйлчилгээ */
+  --c-parts:#D054DE;      /* Сэлбэг */
+  --c-machines:#EB365B;   /* Машин/тоног (RGB-ээс: R235 G54 B91) */
+
+  /* Саарал/суурь */
+  --ink:#15203a; --muted:#5d6b82; --line:#e2e7ef;
+  --bg:#eef1f6; --paper:#fff; --cream:#f4f7fb;
+
+  /* Төлөвийн өнгө (UI) */
+  --ok:#2E9E4F; --wait:#B7791F; --warn:#B7791F; --err:#D62B4A;
+
+  /* Фонт */
+  --font-display:'Montserrat',system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+  --font-body:'Inter',system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+
+  /* Хэлбэр */
+  --radius:14px; --shadow:0 1px 3px rgba(15,36,88,.08);
+}
+
+/* ===== СУУРЬ ТИПОГРАФИ ===== */
+body{font-family:var(--font-body);color:var(--ink);
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+h1,h2,h3,.display{font-family:var(--font-display);font-weight:800;letter-spacing:-.2px}
