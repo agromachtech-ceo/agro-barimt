@@ -1,57 +1,98 @@
-<!DOCTYPE html><html lang="mn"><head><meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Агромаштех — Брэнд харагдац preview</title>
-<style>
-:root{--navy:#163280;--navy-d:#0f2456;--yellow:#F7C80A;--orange:#E88215;--ink:#15203a;--muted:#5d6b82;--line:#e2e7ef;--bg:#eef1f6}
-*{box-sizing:border-box;margin:0}
-body{font-family:system-ui,Arial,sans-serif;background:#c9d2de;padding:20px;color:var(--ink)}
-.note{max-width:420px;margin:0 auto 16px;font-size:13px;color:#33425a;text-align:center}
-.phone{max-width:420px;margin:0 auto;background:#fff;border-radius:26px;overflow:hidden;
-  box-shadow:0 18px 50px rgba(15,36,88,.28);position:relative;min-height:760px;
-  background-image:url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMjAgMTIwIiB3aWR0aD0iMTIwIiBoZWlnaHQ9IjEyMCI+PGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMTUgMTgpIHJvdGF0ZSgwIDE3LjAgMTcuMCkiPjxwYXRoIGQ9Ik0xNy4wIDMuNDAwMDAwMDAwMDAwMDAwNCBDIDI4LjkgNC4wOCAzMC42IDE3LjAgMjEuMDggMjkuMjQgQyA5LjUyMDAwMDAwMDAwMDAwMSAzMC42IDIuNzIgMjEuMDggNC43NjAwMDAwMDAwMDAwMDEgMTAuODggQyA2LjgwMDAwMDAwMDAwMDAwMSA1LjQ0IDExLjU2IDMuNDAwMDAwMDAwMDAwMDAwNCAxNy4wIDMuNDAwMDAwMDAwMDAwMDAwNCBaIiBmaWxsPSIjZGJlMWVjIi8+PHBhdGggZD0iTTEwLjg4IDIyLjQ0IEMgMTQuMjggMTcuMCAxNy42OCAxMy42MDAwMDAwMDAwMDAwMDEgMjMuMTIgMTEuNTYiIHN0cm9rZT0iI2VlZjFmNiIgc3Ryb2tlLXdpZHRoPSIxLjcwMDAwMDAwMDAwMDAwMDIiIGZpbGw9Im5vbmUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgb3BhY2l0eT0iMC45Ii8+PC9nPjxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDcwIDEwKSByb3RhdGUoNDAgMTcuMCAxNy4wKSI+PHBhdGggZD0iTTE3LjAgMy40MDAwMDAwMDAwMDAwMDA0IEMgMjguOSA0LjA4IDMwLjYgMTcuMCAyMS4wOCAyOS4yNCBDIDkuNTIwMDAwMDAwMDAwMDAxIDMwLjYgMi43MiAyMS4wOCA0Ljc2MDAwMDAwMDAwMDAwMSAxMC44OCBDIDYuODAwMDAwMDAwMDAwMDAxIDUuNDQgMTEuNTYgMy40MDAwMDAwMDAwMDAwMDA0IDE3LjAgMy40MDAwMDAwMDAwMDAwMDA0IFoiIGZpbGw9IiNkYmUxZWMiLz48cGF0aCBkPSJNMTAuODggMjIuNDQgQyAxNC4yOCAxNy4wIDE3LjY4IDEzLjYwMDAwMDAwMDAwMDAwMSAyMy4xMiAxMS41NiIgc3Ryb2tlPSIjZWVmMWY2IiBzdHJva2Utd2lkdGg9IjEuNzAwMDAwMDAwMDAwMDAwMiIgZmlsbD0ibm9uZSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBvcGFjaXR5PSIwLjkiLz48L2c+PGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNDAgNjApIHJvdGF0ZSgxMjAgMTcuMCAxNy4wKSI+PHBhdGggZD0iTTE3LjAgMy40MDAwMDAwMDAwMDAwMDA0IEMgMjguOSA0LjA4IDMwLjYgMTcuMCAyMS4wOCAyOS4yNCBDIDkuNTIwMDAwMDAwMDAwMDAxIDMwLjYgMi43MiAyMS4wOCA0Ljc2MDAwMDAwMDAwMDAwMSAxMC44OCBDIDYuODAwMDAwMDAwMDAwMDAxIDUuNDQgMTEuNTYgMy40MDAwMDAwMDAwMDAwMDA0IDE3LjAgMy40MDAwMDAwMDAwMDAwMDA0IFoiIGZpbGw9IiNkYmUxZWMiLz48cGF0aCBkPSJNMTAuODggMjIuNDQgQyAxNC4yOCAxNy4wIDE3LjY4IDEzLjYwMDAwMDAwMDAwMDAwMSAyMy4xMiAxMS41NiIgc3Ryb2tlPSIjZWVmMWY2IiBzdHJva2Utd2lkdGg9IjEuNzAwMDAwMDAwMDAwMDAwMiIgZmlsbD0ibm9uZSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBvcGFjaXR5PSIwLjkiLz48L2c+PGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoOTIgNzApIHJvdGF0ZSgyMjAgMTcuMCAxNy4wKSI+PHBhdGggZD0iTTE3LjAgMy40MDAwMDAwMDAwMDAwMDA0IEMgMjguOSA0LjA4IDMwLjYgMTcuMCAyMS4wOCAyOS4yNCBDIDkuNTIwMDAwMDAwMDAwMDAxIDMwLjYgMi43MiAyMS4wOCA0Ljc2MDAwMDAwMDAwMDAwMSAxMC44OCBDIDYuODAwMDAwMDAwMDAwMDAxIDUuNDQgMTEuNTYgMy40MDAwMDAwMDAwMDAwMDA0IDE3LjAgMy40MDAwMDAwMDAwMDAwMDA0IFoiIGZpbGw9IiNkYmUxZWMiLz48cGF0aCBkPSJNMTAuODggMjIuNDQgQyAxNC4yOCAxNy4wIDE3LjY4IDEzLjYwMDAwMDAwMDAwMDAwMSAyMy4xMiAxMS41NiIgc3Ryb2tlPSIjZWVmMWY2IiBzdHJva2Utd2lkdGg9IjEuNzAwMDAwMDAwMDAwMDAwMiIgZmlsbD0ibm9uZSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBvcGFjaXR5PSIwLjkiLz48L2c+PGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMTAgODgpIHJvdGF0ZSgzMDAgMTcuMCAxNy4wKSI+PHBhdGggZD0iTTE3LjAgMy40MDAwMDAwMDAwMDAwMDA0IEMgMjguOSA0LjA4IDMwLjYgMTcuMCAyMS4wOCAyOS4yNCBDIDkuNTIwMDAwMDAwMDAwMDAxIDMwLjYgMi43MiAyMS4wOCA0Ljc2MDAwMDAwMDAwMDAwMSAxMC44OCBDIDYuODAwMDAwMDAwMDAwMDAxIDUuNDQgMTEuNTYgMy40MDAwMDAwMDAwMDAwMDA0IDE3LjAgMy40MDAwMDAwMDAwMDAwMDA0IFoiIGZpbGw9IiNkYmUxZWMiLz48cGF0aCBkPSJNMTAuODggMjIuNDQgQyAxNC4yOCAxNy4wIDE3LjY4IDEzLjYwMDAwMDAwMDAwMDAwMSAyMy4xMiAxMS41NiIgc3Ryb2tlPSIjZWVmMWY2IiBzdHJva2Utd2lkdGg9IjEuNzAwMDAwMDAwMDAwMDAwMiIgZmlsbD0ibm9uZSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBvcGFjaXR5PSIwLjkiLz48L2c+PGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNjQgOTIpIHJvdGF0ZSgxNjAgMTcuMCAxNy4wKSI+PHBhdGggZD0iTTE3LjAgMy40MDAwMDAwMDAwMDAwMDA0IEMgMjguOSA0LjA4IDMwLjYgMTcuMCAyMS4wOCAyOS4yNCBDIDkuNTIwMDAwMDAwMDAwMDAxIDMwLjYgMi43MiAyMS4wOCA0Ljc2MDAwMDAwMDAwMDAwMSAxMC44OCBDIDYuODAwMDAwMDAwMDAwMDAxIDUuNDQgMTEuNTYgMy40MDAwMDAwMDAwMDAwMDA0IDE3LjAgMy40MDAwMDAwMDAwMDAwMDA0IFoiIGZpbGw9IiNkYmUxZWMiLz48cGF0aCBkPSJNMTAuODggMjIuNDQgQyAxNC4yOCAxNy4wIDE3LjY4IDEzLjYwMDAwMDAwMDAwMDAwMSAyMy4xMiAxMS41NiIgc3Ryb2tlPSIjZWVmMWY2IiBzdHJva2Utd2lkdGg9IjEuNzAwMDAwMDAwMDAwMDAwMiIgZmlsbD0ibm9uZSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBvcGFjaXR5PSIwLjkiLz48L2c+PC9zdmc+");background-size:150px;background-repeat:repeat}
-.phone:before{content:"";position:absolute;inset:0;background:rgba(255,255,255,.72)}
-.inner{position:relative;z-index:1}
-header{background:var(--navy);color:#fff;padding:16px 18px;display:flex;align-items:center;gap:11px}
-header img{width:34px;height:34px}
-header .wm{font-family:'Montserrat',system-ui,sans-serif;font-weight:800;font-size:18px;letter-spacing:.3px}
-header .st{margin-left:auto;font-size:11px;font-weight:600;background:rgba(255,255,255,.16);color:#9be3b4;padding:4px 9px;border-radius:20px}
-.body{padding:16px}
-.lbl{display:flex;justify-content:space-between;font-size:13px;color:var(--muted);margin-bottom:12px}
-.card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px;margin-bottom:11px;box-shadow:0 1px 2px rgba(15,36,88,.05)}
-.tag{font-size:11px;font-weight:700;color:var(--navy);background:#eef2f8;border-radius:6px;padding:3px 8px}
-.ok{float:right;font-size:11px;font-weight:700;background:#e6f4ec;color:#2E9E4F;border-radius:20px;padding:3px 9px}
-.ttl{font-family:'Montserrat',system-ui,sans-serif;font-weight:700;font-size:16px;margin:8px 0 3px}
-.meta{font-size:13px;color:var(--muted)}
-.strip{height:34px;background-image:url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMjAgNDAiIHdpZHRoPSIzMjAiIGhlaWdodD0iNDAiPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgZmlsbD0iIzE2MzI4MCIvPjxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDQuOCA0LjgpIHJvdGF0ZSgwIDE1LjIgMTUuMikiPjxwYXRoIGQ9Ik0xNS4yIDMuMDQgQyAyNS44NCAzLjY0Nzk5OTk5OTk5OTk5OTcgMjcuMzYgMTUuMiAxOC44NDggMjYuMTQ0IEMgOC41MTIgMjcuMzYgMi40MzIgMTguODQ4IDQuMjU2IDkuNzI4IEMgNi4wOCA0Ljg2NCAxMC4zMzYgMy4wNCAxNS4yIDMuMDQgWiIgZmlsbD0iI2ZmZmZmZiIgb3BhY2l0eT0iMC45MiIvPjxwYXRoIGQ9Ik05LjcyOCAyMC4wNjQgQyAxMi43Njc5OTk5OTk5OTk5OTkgMTUuMiAxNS44MDggMTIuMTYgMjAuNjcyIDEwLjMzNiIgc3Ryb2tlPSIjZmZmZmZmIiBzdHJva2Utd2lkdGg9IjEuNTIiIGZpbGw9Im5vbmUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgb3BhY2l0eT0iMC45Ii8+PC9nPjxyZWN0IHg9IjQwIiB5PSIwIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIGZpbGw9IiNGN0M4MEEiLz48ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSg0NC44IDQuOCkgcm90YXRlKDM1IDE1LjIgMTUuMikiPjxwYXRoIGQ9Ik0xNS4yIDMuMDQgQyAyNS44NCAzLjY0Nzk5OTk5OTk5OTk5OTcgMjcuMzYgMTUuMiAxOC44NDggMjYuMTQ0IEMgOC41MTIgMjcuMzYgMi40MzIgMTguODQ4IDQuMjU2IDkuNzI4IEMgNi4wOCA0Ljg2NCAxMC4zMzYgMy4wNCAxNS4yIDMuMDQgWiIgZmlsbD0iI2ZmZmZmZiIgb3BhY2l0eT0iMC45MiIvPjxwYXRoIGQ9Ik05LjcyOCAyMC4wNjQgQyAxMi43Njc5OTk5OTk5OTk5OTkgMTUuMiAxNS44MDggMTIuMTYgMjAuNjcyIDEwLjMzNiIgc3Ryb2tlPSIjZmZmZmZmIiBzdHJva2Utd2lkdGg9IjEuNTIiIGZpbGw9Im5vbmUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgb3BhY2l0eT0iMC45Ii8+PC9nPjxyZWN0IHg9IjgwIiB5PSIwIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIGZpbGw9IiM2OUQ2MTUiLz48ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSg4NC44IDQuOCkgcm90YXRlKDcwIDE1LjIgMTUuMikiPjxwYXRoIGQ9Ik0xNS4yIDMuMDQgQyAyNS44NCAzLjY0Nzk5OTk5OTk5OTk5OTcgMjcuMzYgMTUuMiAxOC44NDggMjYuMTQ0IEMgOC41MTIgMjcuMzYgMi40MzIgMTguODQ4IDQuMjU2IDkuNzI4IEMgNi4wOCA0Ljg2NCAxMC4zMzYgMy4wNCAxNS4yIDMuMDQgWiIgZmlsbD0iI2ZmZmZmZiIgb3BhY2l0eT0iMC45MiIvPjxwYXRoIGQ9Ik05LjcyOCAyMC4wNjQgQyAxMi43Njc5OTk5OTk5OTk5OTkgMTUuMiAxNS44MDggMTIuMTYgMjAuNjcyIDEwLjMzNiIgc3Ryb2tlPSIjZmZmZmZmIiBzdHJva2Utd2lkdGg9IjEuNTIiIGZpbGw9Im5vbmUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgb3BhY2l0eT0iMC45Ii8+PC9nPjxyZWN0IHg9IjEyMCIgeT0iMCIgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiBmaWxsPSIjMkZERUNEIi8+PGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMTI0LjggNC44KSByb3RhdGUoMTA1IDE1LjIgMTUuMikiPjxwYXRoIGQ9Ik0xNS4yIDMuMDQgQyAyNS44NCAzLjY0Nzk5OTk5OTk5OTk5OTcgMjcuMzYgMTUuMiAxOC44NDggMjYuMTQ0IEMgOC41MTIgMjcuMzYgMi40MzIgMTguODQ4IDQuMjU2IDkuNzI4IEMgNi4wOCA0Ljg2NCAxMC4zMzYgMy4wNCAxNS4yIDMuMDQgWiIgZmlsbD0iI2ZmZmZmZiIgb3BhY2l0eT0iMC45MiIvPjxwYXRoIGQ9Ik05LjcyOCAyMC4wNjQgQyAxMi43Njc5OTk5OTk5OTk5OTkgMTUuMiAxNS44MDggMTIuMTYgMjAuNjcyIDEwLjMzNiIgc3Ryb2tlPSIjZmZmZmZmIiBzdHJva2Utd2lkdGg9IjEuNTIiIGZpbGw9Im5vbmUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgb3BhY2l0eT0iMC45Ii8+PC9nPjxyZWN0IHg9IjE2MCIgeT0iMCIgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiBmaWxsPSIjNERCNUZBIi8+PGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMTY0LjggNC44KSByb3RhdGUoMTQwIDE1LjIgMTUuMikiPjxwYXRoIGQ9Ik0xNS4yIDMuMDQgQyAyNS44NCAzLjY0Nzk5OTk5OTk5OTk5OTcgMjcuMzYgMTUuMiAxOC44NDggMjYuMTQ0IEMgOC41MTIgMjcuMzYgMi40MzIgMTguODQ4IDQuMjU2IDkuNzI4IEMgNi4wOCA0Ljg2NCAxMC4zMzYgMy4wNCAxNS4yIDMuMDQgWiIgZmlsbD0iI2ZmZmZmZiIgb3BhY2l0eT0iMC45MiIvPjxwYXRoIGQ9Ik05LjcyOCAyMC4wNjQgQyAxMi43Njc5OTk5OTk5OTk5OTkgMTUuMiAxNS44MDggMTIuMTYgMjAuNjcyIDEwLjMzNiIgc3Ryb2tlPSIjZmZmZmZmIiBzdHJva2Utd2lkdGg9IjEuNTIiIGZpbGw9Im5vbmUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgb3BhY2l0eT0iMC45Ii8+PC9nPjxyZWN0IHg9IjIwMCIgeT0iMCIgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiBmaWxsPSIjRDA1NERFIi8+PGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMjA0LjggNC44KSByb3RhdGUoMTc1IDE1LjIgMTUuMikiPjxwYXRoIGQ9Ik0xNS4yIDMuMDQgQyAyNS44NCAzLjY0Nzk5OTk5OTk5OTk5OTcgMjcuMzYgMTUuMiAxOC44NDggMjYuMTQ0IEMgOC41MTIgMjcuMzYgMi40MzIgMTguODQ4IDQuMjU2IDkuNzI4IEMgNi4wOCA0Ljg2NCAxMC4zMzYgMy4wNCAxNS4yIDMuMDQgWiIgZmlsbD0iI2ZmZmZmZiIgb3BhY2l0eT0iMC45MiIvPjxwYXRoIGQ9Ik05LjcyOCAyMC4wNjQgQyAxMi43Njc5OTk5OTk5OTk5OTkgMTUuMiAxNS44MDggMTIuMTYgMjAuNjcyIDEwLjMzNiIgc3Ryb2tlPSIjZmZmZmZmIiBzdHJva2Utd2lkdGg9IjEuNTIiIGZpbGw9Im5vbmUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgb3BhY2l0eT0iMC45Ii8+PC9nPjxyZWN0IHg9IjI0MCIgeT0iMCIgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiBmaWxsPSIjRUIzNjVCIi8+PGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMjQ0LjggNC44KSByb3RhdGUoMjEwIDE1LjIgMTUuMikiPjxwYXRoIGQ9Ik0xNS4yIDMuMDQgQyAyNS44NCAzLjY0Nzk5OTk5OTk5OTk5OTcgMjcuMzYgMTUuMiAxOC44NDggMjYuMTQ0IEMgOC41MTIgMjcuMzYgMi40MzIgMTguODQ4IDQuMjU2IDkuNzI4IEMgNi4wOCA0Ljg2NCAxMC4zMzYgMy4wNCAxNS4yIDMuMDQgWiIgZmlsbD0iI2ZmZmZmZiIgb3BhY2l0eT0iMC45MiIvPjxwYXRoIGQ9Ik05LjcyOCAyMC4wNjQgQyAxMi43Njc5OTk5OTk5OTk5OTkgMTUuMiAxNS44MDggMTIuMTYgMjAuNjcyIDEwLjMzNiIgc3Ryb2tlPSIjZmZmZmZmIiBzdHJva2Utd2lkdGg9IjEuNTIiIGZpbGw9Im5vbmUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgb3BhY2l0eT0iMC45Ii8+PC9nPjxyZWN0IHg9IjI4MCIgeT0iMCIgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiBmaWxsPSIjRTg4MjE1Ii8+PGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMjg0LjggNC44KSByb3RhdGUoMjQ1IDE1LjIgMTUuMikiPjxwYXRoIGQ9Ik0xNS4yIDMuMDQgQyAyNS44NCAzLjY0Nzk5OTk5OTk5OTk5OTcgMjcuMzYgMTUuMiAxOC44NDggMjYuMTQ0IEMgOC41MTIgMjcuMzYgMi40MzIgMTguODQ4IDQuMjU2IDkuNzI4IEMgNi4wOCA0Ljg2NCAxMC4zMzYgMy4wNCAxNS4yIDMuMDQgWiIgZmlsbD0iI2ZmZmZmZiIgb3BhY2l0eT0iMC45MiIvPjxwYXRoIGQ9Ik05LjcyOCAyMC4wNjQgQyAxMi43Njc5OTk5OTk5OTk5OTkgMTUuMiAxNS44MDggMTIuMTYgMjAuNjcyIDEwLjMzNiIgc3Ryb2tlPSIjZmZmZmZmIiBzdHJva2Utd2lkdGg9IjEuNTIiIGZpbGw9Im5vbmUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgb3BhY2l0eT0iMC45Ii8+PC9nPjwvc3ZnPg==");background-size:auto 34px;background-repeat:repeat-x;margin-top:6px}
-.fab{padding:14px 16px 18px}
-.btn{width:100%;background:var(--yellow);color:var(--navy);border:none;border-radius:14px;
-  font-family:'Montserrat',system-ui,sans-serif;font-weight:800;font-size:17px;padding:16px;box-shadow:0 6px 18px rgba(247,200,10,.4)}
-.logo-preview{max-width:420px;margin:16px auto 0;background:#fff;border-radius:16px;padding:22px;text-align:center}
-.logo-preview img{width:90px}
-.logo-preview .wm{font-family:'Montserrat',system-ui,sans-serif;font-weight:800;color:var(--navy);font-size:26px;margin-top:6px}
-.logo-preview small{color:var(--muted);font-size:12px;display:block;margin-top:10px}
-</style></head><body>
-<div class="note">Албан бланк маягийн харагдац: <b>лого дээр</b> · <b>бүдэг паттерн фон</b> · <b>өнгөт зурвас доор</b></div>
-<div class="phone"><div class="inner">
-  <header>
-    <img src="data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMjAwIDIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGRlZnM+CjxsaW5lYXJHcmFkaWVudCBpZD0iZyIgeDE9IjAiIHkxPSIwIiB4Mj0iMC40IiB5Mj0iMSI+CjxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iI0ZCRDExQSIvPgo8c3RvcCBvZmZzZXQ9IjAuNTUiIHN0b3AtY29sb3I9IiNGN0M4MEEiLz4KPHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjRTg4MjE1Ii8+CjwvbGluZWFyR3JhZGllbnQ+CjwvZGVmcz4KPHBhdGggZD0iTSAxMDMuMSA2OS43IEMgOTEuMyAzNi4xIDEyMC4wIDE2LjAgMTMxLjggMTcuNiBDIDEzMC44IDQ0LjQgMTEzLjUgNzIuNyAxMTMuNSA3Mi43IEMgMTA4LjMgNzcuMiAxMDMuMSA2OS43IDEwMy4xIDY5LjcgWiIgZmlsbD0idXJsKCNnKSIvPgo8cGF0aCBkPSJNIDEyMy42IDgwLjcgQyAxMzkuMCA0OC43IDE3My41IDU0LjggMTgwLjcgNjQuMiBDIDE2MS4xIDgyLjUgMTI4LjkgOTAuMiAxMjguOSA5MC4yIEMgMTI2LjIgOTEuNSAxMjMuNiA4MC43IDEyMy42IDgwLjcgWiIgZmlsbD0idXJsKCNnKSIvPgo8cGF0aCBkPSJNIDEzMC4zIDEwMy4xIEMgMTYzLjkgOTEuMyAxODQuMCAxMjAuMCAxODIuNCAxMzEuOCBDIDE1NS42IDEzMC44IDEyNy4zIDExMy41IDEyNy4zIDExMy41IEMgMTI4LjggMTE0LjMgMTMwLjMgMTAzLjEgMTMwLjMgMTAzLjEgWiIgZmlsbD0idXJsKCNnKSIvPgo8cGF0aCBkPSJNIDExOS4zIDEyMy42IEMgMTUxLjMgMTM5LjAgMTQ1LjIgMTczLjUgMTM1LjggMTgwLjcgQyAxMTcuNSAxNjEuMSAxMDkuOCAxMjguOSAxMDkuOCAxMjguOSBDIDExNC41IDEzMi4yIDExOS4zIDEyMy42IDExOS4zIDEyMy42IFoiIGZpbGw9InVybCgjZykiLz4KPHBhdGggZD0iTSA5Ni45IDEzMC4zIEMgMTA4LjcgMTYzLjkgODAuMCAxODQuMCA2OC4yIDE4Mi40IEMgNjkuMiAxNTUuNiA4Ni41IDEyNy4zIDg2LjUgMTI3LjMgQyA5MS43IDEzNC44IDk2LjkgMTMwLjMgOTYuOSAxMzAuMyBaIiBmaWxsPSJ1cmwoI2cpIi8+CjxwYXRoIGQ9Ik0gNzYuNCAxMTkuMyBDIDYxLjAgMTUxLjMgMjYuNSAxNDUuMiAxOS4zIDEzNS44IEMgMzguOSAxMTcuNSA3MS4xIDEwOS44IDcxLjEgMTA5LjggQyA3My44IDEyMC41IDc2LjQgMTE5LjMgNzYuNCAxMTkuMyBaIiBmaWxsPSJ1cmwoI2cpIi8+CjxwYXRoIGQ9Ik0gNjkuNyA5Ni45IEMgMzYuMSAxMDguNyAxNi4wIDgwLjAgMTcuNiA2OC4yIEMgNDQuNCA2OS4yIDcyLjcgODYuNSA3Mi43IDg2LjUgQyA3MS4yIDk3LjcgNjkuNyA5Ni45IDY5LjcgOTYuOSBaIiBmaWxsPSJ1cmwoI2cpIi8+CjxwYXRoIGQ9Ik0gODAuNyA3Ni40IEMgNDguNyA2MS4wIDU0LjggMjYuNSA2NC4yIDE5LjMgQyA4Mi41IDM4LjkgOTAuMiA3MS4xIDkwLjIgNzEuMSBDIDg1LjUgNzkuOCA4MC43IDc2LjQgODAuNyA3Ni40IFoiIGZpbGw9InVybCgjZykiLz4KCjxjaXJjbGUgY3g9IjEwMCIgY3k9IjEwMCIgcj0iMTMiIGZpbGw9InVybCgjZykiLz4KPGNpcmNsZSBjeD0iMTAwIiBjeT0iMTAwIiByPSI2LjUiIGZpbGw9IiNmZmYiIG9wYWNpdHk9IjAuMCIvPgo8L3N2Zz4=" alt="">
-    <span class="wm">Агромаштех</span>
-    <span class="st">● Сүлжээнд</span>
-  </header>
-  <div class="body">
-    <div class="lbl"><span>Хүлээгдэж буй: v7</span><span>Одоо илгээх</span></div>
-    <div class="card"><span class="tag">Дараа тооцоо</span><span class="ok">Илгээгдсэн</span>
-      <div class="ttl">Ургамал хамгаалал-7</div><div class="meta">Хуашин · 681,600₮ · 2026-07-03</div></div>
-    <div class="card"><span class="tag">Дараа тооцоо</span><span class="ok">Илгээгдсэн</span>
-      <div class="ttl">Харилцагч</div><div class="meta">Монголианс · 117,500₮ · 2026-07-03</div></div>
-  </div>
-  <div class="strip"></div>
-  <div class="fab"><button class="btn">＋ Баримт нэмэх</button></div>
-</div></div>
+/*************************************************************
+ * АГРОМАШТЕХ ХХК — Нэгдсэн брэнд стандарт (brand.css)
+ * Брэндбүүкийн дагуу: өнгө, фонт, харьцаа. Бүх систем ЭНД холбогдоно.
+ * Фонт орлуулга: Museo Sans Cyrl → Montserrat · TT Hoves → Inter
+ *************************************************************/
 
-<div class="logo-preview">
-  <img src="data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMjAwIDIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGRlZnM+CjxsaW5lYXJHcmFkaWVudCBpZD0iZyIgeDE9IjAiIHkxPSIwIiB4Mj0iMC40IiB5Mj0iMSI+CjxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iI0ZCRDExQSIvPgo8c3RvcCBvZmZzZXQ9IjAuNTUiIHN0b3AtY29sb3I9IiNGN0M4MEEiLz4KPHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjRTg4MjE1Ii8+CjwvbGluZWFyR3JhZGllbnQ+CjwvZGVmcz4KPHBhdGggZD0iTSAxMDMuMSA2OS43IEMgOTEuMyAzNi4xIDEyMC4wIDE2LjAgMTMxLjggMTcuNiBDIDEzMC44IDQ0LjQgMTEzLjUgNzIuNyAxMTMuNSA3Mi43IEMgMTA4LjMgNzcuMiAxMDMuMSA2OS43IDEwMy4xIDY5LjcgWiIgZmlsbD0idXJsKCNnKSIvPgo8cGF0aCBkPSJNIDEyMy42IDgwLjcgQyAxMzkuMCA0OC43IDE3My41IDU0LjggMTgwLjcgNjQuMiBDIDE2MS4xIDgyLjUgMTI4LjkgOTAuMiAxMjguOSA5MC4yIEMgMTI2LjIgOTEuNSAxMjMuNiA4MC43IDEyMy42IDgwLjcgWiIgZmlsbD0idXJsKCNnKSIvPgo8cGF0aCBkPSJNIDEzMC4zIDEwMy4xIEMgMTYzLjkgOTEuMyAxODQuMCAxMjAuMCAxODIuNCAxMzEuOCBDIDE1NS42IDEzMC44IDEyNy4zIDExMy41IDEyNy4zIDExMy41IEMgMTI4LjggMTE0LjMgMTMwLjMgMTAzLjEgMTMwLjMgMTAzLjEgWiIgZmlsbD0idXJsKCNnKSIvPgo8cGF0aCBkPSJNIDExOS4zIDEyMy42IEMgMTUxLjMgMTM5LjAgMTQ1LjIgMTczLjUgMTM1LjggMTgwLjcgQyAxMTcuNSAxNjEuMSAxMDkuOCAxMjguOSAxMDkuOCAxMjguOSBDIDExNC41IDEzMi4yIDExOS4zIDEyMy42IDExOS4zIDEyMy42IFoiIGZpbGw9InVybCgjZykiLz4KPHBhdGggZD0iTSA5Ni45IDEzMC4zIEMgMTA4LjcgMTYzLjkgODAuMCAxODQuMCA2OC4yIDE4Mi40IEMgNjkuMiAxNTUuNiA4Ni41IDEyNy4zIDg2LjUgMTI3LjMgQyA5MS43IDEzNC44IDk2LjkgMTMwLjMgOTYuOSAxMzAuMyBaIiBmaWxsPSJ1cmwoI2cpIi8+CjxwYXRoIGQ9Ik0gNzYuNCAxMTkuMyBDIDYxLjAgMTUxLjMgMjYuNSAxNDUuMiAxOS4zIDEzNS44IEMgMzguOSAxMTcuNSA3MS4xIDEwOS44IDcxLjEgMTA5LjggQyA3My44IDEyMC41IDc2LjQgMTE5LjMgNzYuNCAxMTkuMyBaIiBmaWxsPSJ1cmwoI2cpIi8+CjxwYXRoIGQ9Ik0gNjkuNyA5Ni45IEMgMzYuMSAxMDguNyAxNi4wIDgwLjAgMTcuNiA2OC4yIEMgNDQuNCA2OS4yIDcyLjcgODYuNSA3Mi43IDg2LjUgQyA3MS4yIDk3LjcgNjkuNyA5Ni45IDY5LjcgOTYuOSBaIiBmaWxsPSJ1cmwoI2cpIi8+CjxwYXRoIGQ9Ik0gODAuNyA3Ni40IEMgNDguNyA2MS4wIDU0LjggMjYuNSA2NC4yIDE5LjMgQyA4Mi41IDM4LjkgOTAuMiA3MS4xIDkwLjIgNzEuMSBDIDg1LjUgNzkuOCA4MC43IDc2LjQgODAuNyA3Ni40IFoiIGZpbGw9InVybCgjZykiLz4KCjxjaXJjbGUgY3g9IjEwMCIgY3k9IjEwMCIgcj0iMTMiIGZpbGw9InVybCgjZykiLz4KPGNpcmNsZSBjeD0iMTAwIiBjeT0iMTAwIiByPSI2LjUiIGZpbGw9IiNmZmYiIG9wYWNpdHk9IjAuMCIvPgo8L3N2Zz4=" alt="">
-  <div class="wm">Агромаштех</div>
-  <small>⚠️ Энэ бол лого маркны ойролцоо сэргээлт. Жинхэнэ вектор (SVG/PNG) файл байвал сольж болно.</small>
-</div>
-</body></html>
+/* ===== ФОНТ (өөрөө хостолсон — offline ажиллана) ===== */
+/* Montserrat — гарчиг (display) */
+@font-face{font-family:'Montserrat';font-style:normal;font-weight:500;font-display:swap;
+  src:url('fonts/montserrat-cyrillic-500-normal.woff2') format('woff2');
+  unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:'Montserrat';font-style:normal;font-weight:500;font-display:swap;
+  src:url('fonts/montserrat-latin-500-normal.woff2') format('woff2');
+  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+2000-206F,U+2074,U+20AC,U+2122,U+2212,U+FEFF,U+FFFD}
+@font-face{font-family:'Montserrat';font-style:normal;font-weight:600;font-display:swap;
+  src:url('fonts/montserrat-cyrillic-600-normal.woff2') format('woff2');
+  unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:'Montserrat';font-style:normal;font-weight:600;font-display:swap;
+  src:url('fonts/montserrat-latin-600-normal.woff2') format('woff2');
+  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+2000-206F,U+20AC,U+2122,U+FEFF,U+FFFD}
+@font-face{font-family:'Montserrat';font-style:normal;font-weight:700;font-display:swap;
+  src:url('fonts/montserrat-cyrillic-700-normal.woff2') format('woff2');
+  unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:'Montserrat';font-style:normal;font-weight:700;font-display:swap;
+  src:url('fonts/montserrat-latin-700-normal.woff2') format('woff2');
+  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+2000-206F,U+20AC,U+2122,U+FEFF,U+FFFD}
+@font-face{font-family:'Montserrat';font-style:normal;font-weight:800;font-display:swap;
+  src:url('fonts/montserrat-cyrillic-800-normal.woff2') format('woff2');
+  unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:'Montserrat';font-style:normal;font-weight:800;font-display:swap;
+  src:url('fonts/montserrat-latin-800-normal.woff2') format('woff2');
+  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+2000-206F,U+20AC,U+2122,U+FEFF,U+FFFD}
+
+/* Inter — бичвэр (body) */
+@font-face{font-family:'Inter';font-style:normal;font-weight:400;font-display:swap;
+  src:url('fonts/inter-cyrillic-400-normal.woff2') format('woff2');
+  unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:'Inter';font-style:normal;font-weight:400;font-display:swap;
+  src:url('fonts/inter-latin-400-normal.woff2') format('woff2');
+  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+2000-206F,U+20AC,U+2122,U+FEFF,U+FFFD}
+@font-face{font-family:'Inter';font-style:normal;font-weight:500;font-display:swap;
+  src:url('fonts/inter-cyrillic-500-normal.woff2') format('woff2');
+  unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:'Inter';font-style:normal;font-weight:500;font-display:swap;
+  src:url('fonts/inter-latin-500-normal.woff2') format('woff2');
+  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+2000-206F,U+20AC,U+2122,U+FEFF,U+FFFD}
+@font-face{font-family:'Inter';font-style:normal;font-weight:600;font-display:swap;
+  src:url('fonts/inter-cyrillic-600-normal.woff2') format('woff2');
+  unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:'Inter';font-style:normal;font-weight:600;font-display:swap;
+  src:url('fonts/inter-latin-600-normal.woff2') format('woff2');
+  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+2000-206F,U+20AC,U+2122,U+FEFF,U+FFFD}
+@font-face{font-family:'Inter';font-style:normal;font-weight:700;font-display:swap;
+  src:url('fonts/inter-cyrillic-700-normal.woff2') format('woff2');
+  unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:'Inter';font-style:normal;font-weight:700;font-display:swap;
+  src:url('fonts/inter-latin-700-normal.woff2') format('woff2');
+  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+2000-206F,U+20AC,U+2122,U+FEFF,U+FFFD}
+
+/* ===== БРЭНД ТОКЕН (өнгө, фонт) ===== */
+:root{
+  /* Үндсэн өнгө (брэндбүүк) */
+  --navy:#2F3E8F;      /* Navy Blue #2F3E8F (албан логод тааруулав) */
+  --navy-d:#212B64;    /* гүн navy — толгой градиент */
+  --navy-2:#4152B2;    /* цайвар navy — hover */
+  --navy2:#4152B2;     /* alias */
+  --yellow:#F7C80A;    /* Yellow #F7C80A */
+  --orange:#E88215;    /* Orange #E88215 */
+  --gold:#F7C80A;      /* үндсэн онцлох (alias → yellow) */
+  --gold-l:#ffd84d;
+  --gold-d:#E88215;    /* hover → orange */
+
+  /* Үйлчилгээний өнгө (5 чиглэл) */
+  --c-plant:#69D615;      /* Ургамал хамгаалал */
+  --c-precision:#2FDECD;  /* Precision farming */
+  --c-service:#4DB5FA;    /* Засвар үйлчилгээ */
+  --c-parts:#D054DE;      /* Сэлбэг */
+  --c-machines:#EB365B;   /* Машин/тоног (RGB-ээс: R235 G54 B91) */
+
+  /* Саарал/суурь */
+  --ink:#15203a; --muted:#5d6b82; --line:#e2e7ef;
+  --bg:#eef1f6; --paper:#fff; --cream:#f4f7fb;
+
+  /* Төлөвийн өнгө (UI) */
+  --ok:#2E9E4F; --wait:#B7791F; --warn:#B7791F; --err:#D62B4A;
+
+  /* Фонт */
+  --font-display:'Montserrat',system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+  --font-body:'Inter',system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+
+  /* Хэлбэр */
+  --radius:14px; --shadow:0 1px 3px rgba(15,36,88,.08);
+}
+
+/* ===== СУУРЬ ТИПОГРАФИ ===== */
+body{font-family:var(--font-body);color:var(--ink);
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+h1,h2,h3,.display{font-family:var(--font-display);font-weight:800;letter-spacing:-.2px}
